@@ -9,23 +9,22 @@ public class Asociacion {
 	public Asociacion(String aNombre, int aFondos) {
 		setNombre(aNombre);
 		setFondos(aFondos);
+		transacciones=new ArrayList<>();
 	}
 	
 	public Asociacion(String aNombre) {
 		setNombre(aNombre);
 	}
 	
-	public void agregarTransaccion(String movimiento) {
-		transacciones.add(movimiento);
-		/*
-		int donativo = 0;
-		if (donativo > 0 && movimiento != null) {
-			fondos = fondos + donativo;
+	public boolean agregarTransaccion(String persona,int donativo) {
+		if(donativo>0){
+			fondos+=donativo;
+			transacciones.add(persona+" dona: "+donativo);
+			return true;
 		}
-		else {
-			fondos = fondos + 0;
+		else{
+			return false;
 		}
-		*/
 	}
 
 	public String getNombre() {
