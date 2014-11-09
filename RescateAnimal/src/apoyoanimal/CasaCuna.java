@@ -7,12 +7,17 @@ import clientes.Mascota;
 
 public class CasaCuna {
 	private Persona encargado;
+	private String lugar;
 	private ArrayList<String> tipos;
 	private ArrayList<String> razas;
 	
 	private String periodosCuido;
 	private int lapsoCuido;
 	private boolean ayudaComida;
+	private boolean machos;
+	private boolean hembras;
+	private boolean castrados;
+	private boolean vacunados;
 	
 	private boolean ayudaRopas;
 	private boolean ayudaEconomica;
@@ -20,32 +25,56 @@ public class CasaCuna {
 	
 	private ArrayList<Mascota> mascotasEnCuido;
 	
-	public CasaCuna(Persona pEncargado) {
+	public CasaCuna(Persona pEncargado,String lugar,String notas) {
 		setEncargado(pEncargado);
+		this.lugar=lugar;
+		this.notas=notas;
+		tipos=new ArrayList<>();
+		razas=new ArrayList<>();
 	}
 	
-	public boolean agregarMascota(Mascota mascota) {
-		Mascota ccmascota = mascota;
-		int situacion = 0;
-		
-		switch(situacion) {
-			case 1:
-				ayudaComida = true;
-				break;
-				
-			case 2:
-				ayudaRopas = true;
-				break;
-				
-			case 3:
-				ayudaEconomica = true;
-				break;
-				
-			default:
-				break;
-		}
-		return false;
-		
+	public void agregarMascota(Mascota mascota) {
+		mascotasEnCuido.add(mascota);
+	}
+
+	public String getLugar() {
+		return lugar;
+	}
+
+	public void setLugar(String lugar) {
+		this.lugar = lugar;
+	}
+
+	public boolean isMachos() {
+		return machos;
+	}
+
+	public void setMachos(boolean machos) {
+		this.machos = machos;
+	}
+
+	public boolean isHembras() {
+		return hembras;
+	}
+
+	public void setHembras(boolean hembras) {
+		this.hembras = hembras;
+	}
+
+	public boolean isCastrados() {
+		return castrados;
+	}
+
+	public void setCastrados(boolean castrados) {
+		this.castrados = castrados;
+	}
+
+	public boolean isVacunados() {
+		return vacunados;
+	}
+
+	public void setVacunados(boolean vacunados) {
+		this.vacunados = vacunados;
 	}
 
 	public Persona getEncargado() {
