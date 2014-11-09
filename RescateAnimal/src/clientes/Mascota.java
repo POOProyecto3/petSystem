@@ -121,5 +121,12 @@ public class Mascota {
 		this.notas = notas;
 	}
 	
-
+	public String toString() {
+		return "Nombre: " + nombre + "\nEspecie= " + especie + "\nRaza= "
+				+ raza + "\nChip; " + chip + "\nColor: " + color + "\nFoto: "
+				+ foto + "\nUbicacion: " + ubicacion + "\nFecha: " + fecha
+				+ "\nEstado: " + estado + "\nRecompensa: " + recompensa
+				+ "\nNotas= " + notas;
+	}
+		
 }

@@ -1,7 +1,7 @@
 package clientes;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 import clientes.Persona;
 import clientes.Mascota;
@@ -13,14 +13,12 @@ public class Usuario extends Persona {
 	protected ArrayList<Mascota> adopciones;
 
 	public Usuario(String dNombre, String dPApellido, String dSApellido, String dTelefono, 
-			String dCorreo, String dCedula, String dDireccion, String dUsername, 
-			ArrayList<Integer> dReportes, float dCalificacion, ArrayList<Mascota> dAdopciones) {
+			String dCorreo, String dCedula, String dDireccion, String dUsername) {
 		super(dNombre, dPApellido, dSApellido, dTelefono, dCorreo, dCedula, dDireccion);
-		setReportes(dReportes);
-		setCalificacion(dCalificacion);
-		setAdopciones(dAdopciones);
+		reportes=new ArrayList<>();
+		adopciones=new ArrayList<>();
 	}
-
+	
 	public String getUsername() {
 		return username;
 	}
@@ -53,9 +51,9 @@ public class Usuario extends Persona {
 		this.adopciones = adopciones;
 	}
 	
-	public List verInfo() {
-		return null;
-		
+	public String verInfo() {
+		return "Nombre: "+nombre+"\nApellidos: "+pApellido+" "+sApellido+"\nTeléfono: "+telefono+
+				"\nCorreo: "+correo+"\nCédula: "+cedula+"\nDirección: "+direccion;
 	}
 	
 	public Mascota reportarMascota(String nombre, String especie, String raza, String chip,
