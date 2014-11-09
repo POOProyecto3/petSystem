@@ -11,7 +11,13 @@ public class Asociacion {
 		setFondos(aFondos);
 	}
 	
+	public Asociacion(String aNombre) {
+		setNombre(aNombre);
+	}
+	
 	public void agregarTransaccion(String movimiento) {
+		transacciones.add(movimiento);
+		/*
 		int donativo = 0;
 		if (donativo > 0 && movimiento != null) {
 			fondos = fondos + donativo;
@@ -19,6 +25,7 @@ public class Asociacion {
 		else {
 			fondos = fondos + 0;
 		}
+		*/
 	}
 
 	public String getNombre() {
