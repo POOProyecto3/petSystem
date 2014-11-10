@@ -29,7 +29,7 @@ public class CasaCuna {
 		this.notas = notas;
 		tipos = new ArrayList<>();
 		razas = new ArrayList<>();
-		mascotasEnCuido=new ArrayList<>();
+		mascotasEnCuido = new ArrayList<>();
 	}
 	
 	public void agregarMascota(Mascota mascota) {

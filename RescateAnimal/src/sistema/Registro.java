@@ -155,9 +155,9 @@ public class Registro {
 	}
 	
 	//Se utiliza el indexCasaCuna para idenfiticar a cuál Casa Cuna se le agregará la mascota
-	public boolean alojarEnCasaCuna(int indexCasaCuna,Mascota mascota){
-		if(0 <= indexCasaCuna && indexCasaCuna<casasCuna.size()){
-			ArrayList<Mascota> lista=casasCuna.get(indexCasaCuna).getMascotasEnCuido();
+	public boolean alojarEnCasaCuna(int indexCasaCuna,Mascota mascota) {
+		if(0 <= indexCasaCuna && indexCasaCuna<casasCuna.size()) {
+			ArrayList<Mascota> lista = casasCuna.get(indexCasaCuna).getMascotasEnCuido();
 			
 			int i = 0;
 			while (i < reportes.size()) {
@@ -175,22 +175,22 @@ public class Registro {
 	}
 	
 	
-	public boolean reportarUsuario(Usuario user){
+	public boolean reportarUsuario(Usuario user) {
 		listaNegra.add(user);
 		return true;
 	}
 	
-	public boolean calificar(Usuario user, float calificacion){
+	public boolean calificar(Usuario user, float calificacion) {
 		int i = 0;
 		
-		while(i<personas.size()){
-			
-			if(personas.get(i)==user){
-				if(personas.get(i).getCalificacion()==0){
-					personas.get(i).setCalificacion(calificacion);
+		while (i < personas.size()) {			
+			if (personas.get(i) == user) {
+				if (personas.get(i).getCalificacion()==0) {
+					 personas.get(i).setCalificacion(calificacion);
 				}
-				else{
-					personas.get(i).setCalificacion((personas.get(i).getCalificacion()+calificacion)/2);
+				
+				else {
+					personas.get(i).setCalificacion((personas.get(i).getCalificacion() + calificacion) / 2);
 					return true;
 				}
 			}
@@ -217,24 +217,26 @@ public class Registro {
 			in.close();
 			out.close();
 			return true;
-		} catch (IOException ioe) {
+		} 
+		
+		catch (IOException ioe) {
 			ioe.printStackTrace();
 			return false;
 		}
 	}
 	
-	public boolean aceptarCoindicencia(Mascota pMascota,Mascota sMascota){
+	public boolean aceptarCoincidencia(Mascota pMascota, Mascota sMascota) {
 		//TODO
 		return false;
 	}
 	
-	public boolean ponerEnAdopcion(Mascota mascota){
+	public boolean ponerEnAdopcion(Mascota mascota) {
 		//TODO
 		return false;
 	}
 	
 	//Función anteriormente llamada AgregarListaBlanca
-	public boolean removerDeListaNegra(Usuario user){
+	public boolean removerDeListaNegra(Usuario user) {
 		//TODO
 		return false;
 	}

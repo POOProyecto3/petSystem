@@ -61,11 +61,11 @@ public class Usuario extends Persona {
 		return mascotaReportada;
 	}
 	
-	public void agregarReporte(Mascota nuevoReporte){
+	public void agregarReporte(Mascota nuevoReporte) {
 		reportes.add(nuevoReporte);
 	}
 	
-	public void agregarAdopcion(Mascota nuevaAdopcion){
+	public void agregarAdopcion(Mascota nuevaAdopcion) {
 		adopciones.add(nuevaAdopcion);
 	}
 
