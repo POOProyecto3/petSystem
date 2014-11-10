@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
@@ -41,6 +43,32 @@ public class Registro {
 		listaColores = new ArrayList<>();
 	}
 	
+	public boolean guardar(){
+		try{
+			ObjectOutputStream objout = new ObjectOutputStream(new FileOutputStream("registro.ser"));
+			objout.writeObject(this);
+			objout.close();
+		}catch(IOException i){return false;}
+		return true;
+	}
+	
+	public boolean cargar(){
+		try{
+			ObjectInputStream objin = new ObjectInputStream(new FileInputStream("registro.ser"));
+			Registro registro = (Registro)objin.readObject();
+			objin.close();
+			personas = registro.personas;
+			reportes = registro.reportes;
+			casasCuna = registro.casasCuna;
+			asociaciones = registro.asociaciones;
+			listaNegra = registro.listaNegra;
+			listaRazas = registro.listaRazas;
+			listaTipos = registro.listaTipos;
+			listaColores = registro.listaColores;
+		
+		}catch(IOException i){return false;}catch(ClassNotFoundException j){return false;}
+		return true;
+	}
 	
 	private boolean verificarAdd(ArrayList<Usuario> lista, Usuario nuevo) {
 		int i = 0;
