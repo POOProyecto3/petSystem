@@ -35,18 +35,24 @@ public class Registro {
 	}
 	
 	
-	private boolean verificarAdd(ArrayList lista, Object elemento) {
-		if (lista.get(lista.size() - 1) == elemento) {
-			return true;
+	private boolean verificarAdd(ArrayList<Usuario> lista, Usuario nuevo) {
+		int i=0;
+		boolean respuesta = true;
+		while(i<lista.size()){
+			if(lista.get(i).getUsername()== nuevo.getUsername()){
+				respuesta = false;
+			}
 		}
-		else {
-			return false;
-		}
+		return respuesta;
 	}
 	
 	public boolean agregarUsuario(Usuario nUsuario) {
-		personas.add(nUsuario);
-		return verificarAdd(personas, nUsuario);
+		if(verificarAdd(personas,nUsuario)){
+			personas.add(nUsuario);
+			return true;
+		}else{
+			return false;
+		}
 	}
 	
 	public boolean agregarReporte(Mascota nReporte) {

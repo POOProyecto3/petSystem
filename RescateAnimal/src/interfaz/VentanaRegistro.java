@@ -1,15 +1,15 @@
 package interfaz;
 
 import javax.swing.*;
-
 import clientes.*;
-
+import principal.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 
 public class VentanaRegistro extends JFrame{
+	ProgramaPrincipal controlador = new ProgramaPrincipal();
 	JPanel contenedor = new JPanel();
 	GridBagConstraints constraint = new GridBagConstraints();
 	
@@ -108,7 +108,7 @@ public class VentanaRegistro extends JFrame{
 				String usuario = usuarioRegistroIn.getText();
 				String clave = claveRegistroIn.getText();
 				Usuario nuevoUsuario = new Usuario(nombre,pApellido,sApellido,telefono,correo,cedula,direccion,usuario);
-				//registrarUsuario(nuevoUsuario, clave);
+				controlador.registrarUsuario(nuevoUsuario, clave);
 			}
 		});
 		
