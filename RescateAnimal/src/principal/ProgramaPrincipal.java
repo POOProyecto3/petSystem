@@ -12,11 +12,16 @@ public class ProgramaPrincipal {
 		
 	}
 	
-	public boolean registrarUsuario(Usuario nuevo, String clave){
-		return registro.agregarUsuario(nuevo);
+	public boolean registrarUsuario(Usuario usuario, String clave){
+		return registro.agregarUsuario(usuario);
+	}
+	
+	public boolean verificarLogIn(String usuario, String clave){
+		return true;//logIn(usuario, clave);
 	}
 	
 	public static void main(String[] args) {
+		//cargarRegistros();
 		new VentanaPrincipal();
 	}
 	

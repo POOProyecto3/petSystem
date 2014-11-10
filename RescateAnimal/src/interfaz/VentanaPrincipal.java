@@ -1,13 +1,14 @@
 package interfaz;
 
-
 import javax.swing.*;
+import principal.*;
 import clientes.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class VentanaPrincipal extends JFrame{
+	ProgramaPrincipal controlador = new ProgramaPrincipal();
 	JPanel contenedor = new JPanel();
 	GridBagConstraints constraint = new GridBagConstraints();
 	
@@ -18,7 +19,6 @@ public class VentanaPrincipal extends JFrame{
 	TextField claveIn = new TextField("Contraseña");
 	JButton logIn = new JButton("Iniciar sesión");
 	JButton registrar = new JButton("Registrar");
-	
 	
 	public VentanaPrincipal() {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -63,14 +63,19 @@ public class VentanaPrincipal extends JFrame{
 			@Override
 			public void mousePressed(MouseEvent arg0){
 				String usuario = usuarioIn.getText();
-				String clave = claveIn.getText(); 
-				//verificarLogIn(usuarioIn, claveIn);
+				String clave = claveIn.getText();
+				if(controlador.verificarLogIn(usuario, clave)){
+					dispose();
+				}else{
+					mostrarErrorLogIn();
+				}
 			}
 		});
 		
 		registrar.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mousePressed(MouseEvent arg0){
+				dispose();
 				new VentanaRegistro();
 			}
 		});
@@ -85,13 +90,14 @@ public class VentanaPrincipal extends JFrame{
 		claveIn.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mousePressed(MouseEvent arg0){
-				new VentanaRegistro();
+				claveIn.setText("");
 			}
 		});
 		
 	}
 	
-	public static void main(String[] args) {
-		new VentanaPrincipal();
+	public void mostrarErrorLogIn(){
+		JOptionPane.showMessageDialog(this,"Error en LogIn!");
 	}
+	
 }

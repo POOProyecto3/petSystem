@@ -31,16 +31,18 @@ public class VentanaRegistro extends JFrame{
 	TextField direccionIn = new TextField();
 	TextField usuarioRegistroIn = new TextField();
 	TextField claveRegistroIn = new TextField();
-	JButton terminarRegistro = new JButton("Registrar");
+	JButton terminarR = new JButton("Terminar");
 	JButton cancelarRegistro = new JButton("Cancelar");
 	
 	public VentanaRegistro(){
-		setSize(300,405);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setSize(300,440);
 		setResizable(false);
 		setLocationRelativeTo(null);
 		setTitle("Registro");
 		meterWidgets();
 		getContentPane().add(contenedor);
+		
 		setVisible(true);
 	}
 	
@@ -87,35 +89,21 @@ public class VentanaRegistro extends JFrame{
 		constraint.gridy=17;
 		contenedor.add(claveRegistroIn ,constraint);
 		constraint.gridy=18;
-		
-		constraint.gridwidth=1;
-		constraint.weightx=0.5;
+		contenedor.add(terminarR,constraint);
 		constraint.gridy=19;
-		contenedor.add(terminarRegistro ,constraint);
-		constraint.gridx=1;
-		contenedor.add(cancelarRegistro ,constraint);
-		
-		terminarRegistro.addMouseListener(new MouseAdapter(){
-			@Override
-			public void mousePressed(MouseEvent arg0){
-				String nombre = nombreIn.getText();
-				String pApellido = pApellidoIn.getText();
-				String sApellido = sApellidoIn.getText();
-				String telefono = telefonoIn.getText();
-				String correo = correoIn.getText();
-				String cedula = cedulaIn.getText();
-				String direccion = direccionIn.getText();
-				String usuario = usuarioRegistroIn.getText();
-				String clave = claveRegistroIn.getText();
-				Usuario nuevoUsuario = new Usuario(nombre,pApellido,sApellido,telefono,correo,cedula,direccion,usuario);
-				controlador.registrarUsuario(nuevoUsuario, clave);
-			}
-		});
-		
+		contenedor.add(cancelarRegistro,constraint);
+			
 		cancelarRegistro.addMouseListener(new MouseAdapter(){
 			@Override
 			public void mousePressed(MouseEvent arg0){
-				dispose();
+				System.exit(0);
+			}
+		});
+		
+		terminarR.addMouseListener(new MouseAdapter(){
+			@Override
+			public void mousePressed(MouseEvent arg0){
+				System.exit(0);
 			}
 		});
 	}
