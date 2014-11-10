@@ -64,11 +64,12 @@ public class VentanaPrincipal extends JFrame{
 			public void mousePressed(MouseEvent arg0){
 				String usuario = usuarioIn.getText();
 				String clave = claveIn.getText();
-				if(controlador.verificarLogIn(usuario, clave)){
+				new VentanaOpciones();
+				/*if(controlador.verificarLogIn(usuario, clave)){
 					dispose();
 				}else{
 					mostrarErrorLogIn();
-				}
+				}*/
 			}
 		});
 		
