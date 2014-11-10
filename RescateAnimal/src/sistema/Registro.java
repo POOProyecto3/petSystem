@@ -1,5 +1,6 @@
 package sistema;
 
+import java.io.Serializable;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -22,7 +23,7 @@ import apoyoanimal.CasaCuna;
 import clientes.Mascota;
 import clientes.Usuario;
 
-public class Registro {
+public class Registro implements Serializable{
 	private ArrayList<Usuario> personas;
 	private ArrayList<Mascota> reportes;
 	private ArrayList<CasaCuna> casasCuna;
