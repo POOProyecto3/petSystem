@@ -15,8 +15,8 @@ public class Usuario extends Persona {
 	public Usuario(String dNombre, String dPApellido, String dSApellido, String dTelefono, 
 			String dCorreo, String dCedula, String dDireccion, String dUsername) {
 		super(dNombre, dPApellido, dSApellido, dTelefono, dCorreo, dCedula, dDireccion);
-		reportes=new ArrayList<>();
-		adopciones=new ArrayList<>();
+		reportes = new ArrayList<>();
+		adopciones = new ArrayList<>();
 	}
 	
 	public String getUsername() {
@@ -52,8 +52,8 @@ public class Usuario extends Persona {
 	}
 	
 	public String verInfo() {
-		return "Nombre: "+nombre+"\nApellidos: "+pApellido+" "+sApellido+"\nTeléfono: "+telefono+
-				"\nCorreo: "+correo+"\nCédula: "+cedula+"\nDirección: "+direccion;
+		return "Nombre: " + nombre + "\nApellidos: " + pApellido + " " + sApellido + "\nTeléfono: " + telefono +
+				"\nCorreo: " + correo + "\nCédula: " + cedula + "\nDirección: " + direccion;
 	}
 	
 	public Mascota reportarMascota(String nombre, String especie, String raza, String chip,

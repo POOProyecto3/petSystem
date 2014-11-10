@@ -32,7 +32,7 @@ public class Moderador extends Usuario {
 	}
 	
 	public String verInfo() {
-		return super.verInfo()+"\nAdmninistrador\nPuede modificar valores? "+isMaster();
+		return super.verInfo() + "\nAdmninistrador\nPuede modificar valores? " + isMaster();
 	}
 	
 

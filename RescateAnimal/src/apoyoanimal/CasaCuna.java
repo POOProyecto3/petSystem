@@ -25,12 +25,12 @@ public class CasaCuna {
 	
 	private ArrayList<Mascota> mascotasEnCuido;
 	
-	public CasaCuna(Persona pEncargado,String lugar,String notas) {
+	public CasaCuna(Persona pEncargado, String lugar, String notas) {
 		setEncargado(pEncargado);
-		this.lugar=lugar;
-		this.notas=notas;
-		tipos=new ArrayList<>();
-		razas=new ArrayList<>();
+		this.lugar = lugar;
+		this.notas = notas;
+		tipos = new ArrayList<>();
+		razas = new ArrayList<>();
 	}
 	
 	public void agregarMascota(Mascota mascota) {

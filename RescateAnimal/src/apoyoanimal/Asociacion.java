@@ -9,20 +9,20 @@ public class Asociacion {
 	public Asociacion(String aNombre, int aFondos) {
 		setNombre(aNombre);
 		setFondos(aFondos);
-		transacciones=new ArrayList<>();
+		transacciones = new ArrayList<>();
 	}
 	
 	public Asociacion(String aNombre) {
 		setNombre(aNombre);
 	}
 	
-	public boolean agregarTransaccion(String persona,int donativo) {
-		if(donativo>0){
-			fondos+=donativo;
-			transacciones.add(persona+" dona: "+donativo);
+	public boolean agregarTransaccion(String persona, int donativo) {
+		if (donativo > 0) {
+			fondos += donativo;
+			transacciones.add(persona + " dona: " + donativo);
 			return true;
 		}
-		else{
+		else {
 			return false;
 		}
 	}

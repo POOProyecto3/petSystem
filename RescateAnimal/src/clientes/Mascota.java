@@ -122,11 +122,11 @@ public class Mascota {
 	}
 	
 	public String toString() {
-		return "Nombre: " + nombre + "\nEspecie= " + especie + "\nRaza= "
+		return "Nombre: " + nombre + "\nEspecie: " + especie + "\nRaza: "
 				+ raza + "\nChip; " + chip + "\nColor: " + color + "\nFoto: "
 				+ foto + "\nUbicacion: " + ubicacion + "\nFecha: " + fecha
 				+ "\nEstado: " + estado + "\nRecompensa: " + recompensa
-				+ "\nNotas= " + notas;
+				+ "\nNotas: " + notas;
 	}
 		
 }
