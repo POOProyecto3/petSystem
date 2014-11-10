@@ -43,10 +43,10 @@ public class Registro {
 	
 	
 	private boolean verificarAdd(ArrayList<Usuario> lista, Usuario nuevo) {
-		int i=0;
+		int i = 0;
 		boolean respuesta = true;
-		while(i<lista.size()){
-			if(lista.get(i).getUsername()== nuevo.getUsername()){
+		while (i < lista.size()) {
+			if (lista.get(i).getUsername() == nuevo.getUsername()) {
 				respuesta = false;
 			}
 		}
@@ -54,10 +54,12 @@ public class Registro {
 	}
 	
 	public boolean agregarUsuario(Usuario nUsuario) {
-		if(verificarAdd(personas,nUsuario)){
+		if (verificarAdd(personas, nUsuario)) {
 			personas.add(nUsuario);
 			return true;
-		}else{
+		}
+		
+		else {
 			return false;
 		}
 	}
@@ -77,8 +79,8 @@ public class Registro {
 		return verificarAdd(casasCuna, nAsocia);
 	}
 	
-	public boolean notificarPorCorreo(String destinatario,String asunto,String mensaje) {
-		Javamail mail=new Javamail();
+	public boolean notificarPorCorreo(String destinatario, String asunto, String mensaje) {
+		Javamail mail = new Javamail();
 		return mail.enviarCorreo(destinatario, asunto, mensaje);		
 	}
 	
@@ -87,31 +89,37 @@ public class Registro {
 	retorna un boolean
 	Se crea static, ya que es necesario utilizarla sin una instancia de Pesona
 	 */
-	public static boolean verificarCorreo(String correo){
-		if(correo.contains("@")){ //busca que el correo contenga un "@"
-			String[] temp=correo.split("@"); //separa el correo en dos partes mediante el "@"
-			if(temp[0].length()!=0){ //si esta condición se cumple significa que existe un nombre de usuario antes del "@"
-				if (temp[1].contains(".")){ //verifica que exista un "." al lado derecho del "@"
-					if (temp[1].startsWith(".")){ //si esta condición se cumple significa que no existe nada entre "@" y "."
+	public static boolean verificarCorreo(String correo) {
+		if (correo.contains("@")) { //busca que el correo contenga un "@"
+			String[] temp = correo.split("@"); //separa el correo en dos partes mediante el "@"
+			if (temp[0].length() != 0) { //si esta condición se cumple significa que existe un nombre de usuario antes del "@"
+				if (temp[1].contains(".")) { //verifica que exista un "." al lado derecho del "@"
+					if (temp[1].startsWith(".")) { //si esta condición se cumple significa que no existe nada entre "@" y "."
 						return false;
 					}
-					else{ //si existe un dominio entre "@" y "."
-						if (temp[1].endsWith(".")){
+					
+					else { //si existe un dominio entre "@" y "."
+						if (temp[1].endsWith(".")) {
 							return false;
 						}
-						else{
+						
+						else {
 							return true;
 						}
 					}
 				}
+				
 				else {
 					return false;
 				}
-			}else {
+			}
+			
+			else {
 				return false;
 			}
 		}
-		else{
+		
+		else {
 			return false;
 		}
 	}

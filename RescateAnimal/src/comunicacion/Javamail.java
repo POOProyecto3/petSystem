@@ -55,7 +55,9 @@ retorna boolean
 			t.close();
 			System.out.println("Enviado");
 			return true;
-		} catch (MessagingException e) {
+		} 
+		
+		catch (MessagingException e) {
 			System.out.println("Fallido");
 			return false;
 		}

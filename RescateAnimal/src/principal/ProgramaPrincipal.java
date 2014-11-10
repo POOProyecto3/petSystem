@@ -12,12 +12,12 @@ public class ProgramaPrincipal {
 		
 	}
 	
-	public boolean registrarUsuario(Usuario usuario, String clave){
+	public boolean registrarUsuario(Usuario usuario, String clave) {
 		return registro.agregarUsuario(usuario);
 	}
 	
-	public boolean verificarLogIn(String usuario, String clave){
-		return true;//logIn(usuario, clave);
+	public boolean verificarLogIn(String usuario, String clave) {
+		return true; //logIn(usuario, clave);
 	}
 	
 	public static void main(String[] args) {

@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class VentanaOpciones extends JFrame{
+public class VentanaOpciones extends JFrame {
 	ProgramaPrincipal controlador = new ProgramaPrincipal();
 	JPanel contenedor = new JPanel();
 	GridBagConstraints constraint = new GridBagConstraints();
@@ -29,10 +29,11 @@ public class VentanaOpciones extends JFrame{
 	ImageIcon iMascota = new ImageIcon(this.getClass().getResource("/recursos/consultas.jpg"));
 	JLabel mascota = new JLabel(iMascota);
 	
-	public VentanaOpciones(){
+	public VentanaOpciones() {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(600,1230);
+		setSize(600, 1230);
 		setResizable(false);
+		
 		setLocationRelativeTo(null);
 		setTitle("Rescate Animal");
 		meterWidgets();
@@ -41,27 +42,34 @@ public class VentanaOpciones extends JFrame{
 		setVisible(true);
 	}
 	
-	public void meterWidgets(){
+	public void meterWidgets() {
 		contenedor.setLayout(new GridBagLayout());
-		constraint.gridwidth=2;
-		constraint.gridx=0;
-		constraint.gridy=0;
-		contenedor.add(logo,constraint);
-		constraint.gridwidth=1;
-		constraint.gridx=0;
-		constraint.gridy=1;
+		constraint.gridwidth = 2;
+		constraint.gridx = 0;
+		constraint.gridy = 0;
+		
+		contenedor.add(logo, constraint);
+		constraint.gridwidth = 1;
+		constraint.gridx = 0;
+		constraint.gridy = 1;
+		
 		contenedor.add(mascota, constraint);
-		constraint.gridx=1;
+		constraint.gridx = 1;
+		
 		contenedor.add(consultas, constraint);
-		constraint.gridx=0;
-		constraint.gridy=2;
+		constraint.gridx = 0;
+		constraint.gridy = 2;
+		
 		contenedor.add(adopcion, constraint);
-		constraint.gridx=1;
+		constraint.gridx = 1;
+		
 		contenedor.add(editar, constraint);
-		constraint.gridx=0;
-		constraint.gridy=3;
+		constraint.gridx = 0;
+		constraint.gridy = 3;
+		
 		contenedor.add(asociacion, constraint);
-		constraint.gridx=1;
+		constraint.gridx = 1;
+		
 		contenedor.add(casaCuna, constraint);
 	}
 }

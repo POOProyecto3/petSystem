@@ -7,7 +7,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class VentanaPrincipal extends JFrame{
+public class VentanaPrincipal extends JFrame {
 	ProgramaPrincipal controlador = new ProgramaPrincipal();
 	JPanel contenedor = new JPanel();
 	GridBagConstraints constraint = new GridBagConstraints();
@@ -22,8 +22,9 @@ public class VentanaPrincipal extends JFrame{
 	
 	public VentanaPrincipal() {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setSize(300,400);
+		setSize(300, 400);
 		setResizable(false);
+		
 		setLocationRelativeTo(null);
 		setTitle("Rescate Animal");
 		meterWidgets();
@@ -32,73 +33,78 @@ public class VentanaPrincipal extends JFrame{
 		setVisible(true);
 	}
 	
-	public void meterWidgets(){
+	public void meterWidgets() {
 		contenedor.setLayout(new GridBagLayout());
-		constraint.gridwidth=2;
-		constraint.gridx=0;
-		constraint.gridy=0;
-		contenedor.add(logo,constraint);
+		constraint.gridwidth = 2;
+		constraint.gridx = 0;
+		constraint.gridy = 0;
+		contenedor.add(logo, constraint);
 		
 		constraint.fill = GridBagConstraints.HORIZONTAL;
-		constraint.gridx=0;
-		constraint.gridy=1;
-		contenedor.add(usuarioIn,constraint);
-		constraint.gridx=0;
-		constraint.gridy=2;
-		contenedor.add(claveIn,constraint);
+		constraint.gridx = 0;
+		constraint.gridy = 1;
 		
+		contenedor.add(usuarioIn, constraint);
+		constraint.gridx = 0;
+		constraint.gridy = 2;
+		
+		contenedor.add(claveIn, constraint);
 		constraint.fill = GridBagConstraints.HORIZONTAL;
-		constraint.gridwidth=1;
-		constraint.weightx=0.5;
-		constraint.gridx=0;
-		constraint.gridy=3;
-		contenedor.add(logIn,constraint);
-		constraint.weightx=0.5;
-		constraint.gridx=1;
-		constraint.gridy=3;
+		constraint.gridwidth = 1;
+		constraint.weightx = 0.5;
+		constraint.gridx = 0;
+		constraint.gridy = 3;
+		
+		contenedor.add(logIn, constraint);
+		constraint.weightx = 0.5;
+		constraint.gridx = 1;
+		constraint.gridy = 3;
+		
 		contenedor.add(registrar,constraint);
 		contenedor.repaint();
 		
-		logIn.addMouseListener(new MouseAdapter(){
+		logIn.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mousePressed(MouseEvent arg0){
+			public void mousePressed(MouseEvent arg0) {
 				String usuario = usuarioIn.getText();
 				String clave = claveIn.getText();
 				new VentanaOpciones();
-				/*if(controlador.verificarLogIn(usuario, clave)){
+				/*if(controlador.verificarLogIn(usuario, clave)) {
 					dispose();
-				}else{
+				}
+				
+				else {
 					mostrarErrorLogIn();
 				}*/
 			}
 		});
 		
-		registrar.addMouseListener(new MouseAdapter(){
+		registrar.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mousePressed(MouseEvent arg0){
+			public void mousePressed(MouseEvent arg0) {
 				dispose();
 				new VentanaRegistro();
 			}
 		});
 		
-		usuarioIn.addMouseListener(new MouseAdapter(){
+		usuarioIn.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mousePressed(MouseEvent arg0){
+			public void mousePressed(MouseEvent arg0) {
 				usuarioIn.setText("");
 			}
 		});
 		
-		claveIn.addMouseListener(new MouseAdapter(){
+		claveIn.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mousePressed(MouseEvent arg0){
+			public void mousePressed(MouseEvent arg0) {
 				claveIn.setText("");
 			}
 		});
 		
 	}
 	
-	public void mostrarErrorLogIn(){
-		JOptionPane.showMessageDialog(this,"Error en LogIn!");
+	public void mostrarErrorLogIn() {
+		JOptionPane.showMessageDialog(this, "Error en LogIn!");
 	}
 	
 }
