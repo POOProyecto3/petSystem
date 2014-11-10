@@ -14,6 +14,7 @@ import com.restfb.Parameter;
 import com.restfb.exception.FacebookOAuthException;
 import com.restfb.types.FacebookType;
 
+import comunicacion.Javamail;
 import apoyoanimal.Asociacion;
 import apoyoanimal.CasaCuna;
 import clientes.Mascota;
@@ -76,10 +77,43 @@ public class Registro {
 		return verificarAdd(casasCuna, nAsocia);
 	}
 	
-	public boolean notificarPorCorreo() {
-		//Proximamente...
-		return true;
-		
+	public boolean notificarPorCorreo(String destinatario,String asunto,String mensaje) {
+		Javamail mail=new Javamail();
+		return mail.enviarCorreo(destinatario, asunto, mensaje);		
+	}
+	
+	/*Funcion verificar correo: analiza el correo ingresado para evitar problemas a la hora de enviar notificaciones.
+	Recibe un correo en forma de string
+	retorna un boolean
+	Se crea static, ya que es necesario utilizarla sin una instancia de Pesona
+	 */
+	public static boolean verificarCorreo(String correo){
+		if(correo.contains("@")){ //busca que el correo contenga un "@"
+			String[] temp=correo.split("@"); //separa el correo en dos partes mediante el "@"
+			if(temp[0].length()!=0){ //si esta condición se cumple significa que existe un nombre de usuario antes del "@"
+				if (temp[1].contains(".")){ //verifica que exista un "." al lado derecho del "@"
+					if (temp[1].startsWith(".")){ //si esta condición se cumple significa que no existe nada entre "@" y "."
+						return false;
+					}
+					else{ //si existe un dominio entre "@" y "."
+						if (temp[1].endsWith(".")){
+							return false;
+						}
+						else{
+							return true;
+						}
+					}
+				}
+				else {
+					return false;
+				}
+			}else {
+				return false;
+			}
+		}
+		else{
+			return false;
+		}
 	}
 	
 	public ArrayList<Mascota> buscarCoincidencias(Mascota reporte) {
@@ -130,23 +164,8 @@ public class Registro {
 	}
 
 	public boolean publicarEnFacebook(Mascota mascota) {
-		boolean estado = false;
-		try{
-			FacebookClient cliente = new DefaultFacebookClient(
-					"CAAVPzMos6fUBAFZALjQ3Mdh6YZBQJkWe4JzZBHJcXtQAMGEK4QWChlVRJaF9Jf8ZCh1lIZ"
-					+ "BtmWs9CPh2AEKQClAqK3QjH9AWE2Y9P657KnC2ygrscagVOJsIRgL17XWkcIZAsTKun1j"
-					+ "pnb9qRapJawn30DYb8n1ZBC3B9KheM7NbZBpGaoMHybGpzl5ZALhCidtTmjFpKGRWZCZCN"
-					+ "Vvcj6sX8ps&expires=5183623");
-			
-			cliente.publish("me/feed", FacebookType.class, Parameter.with("message", "He reportado "
-					+ "una mascota en el sistema Rescate Animal:\n"+mascota.toString()));
-			estado=true;
-		}catch(Exception ex){
-			if(ex instanceof FacebookOAuthException){
-				estado=false;
-			}
-		}
-		return estado;
+		//TODO
+		return false;
 	}
 	
 	public boolean editarDatosUser(Usuario user) {
@@ -201,7 +220,6 @@ public class Registro {
 		}
 		return false;
 	}
-	
 	
 	public boolean reportarUsuario(Usuario user) {
 		listaNegra.add(user);
