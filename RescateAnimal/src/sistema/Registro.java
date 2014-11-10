@@ -71,6 +71,22 @@ public class Registro implements Serializable{
 		return true;
 	}
 	
+	public boolean validarLogin(String username, String clave){
+		for(int i=0; i<personas.size(); i++){
+			if((username.equals(personas.get(i).getUsername())) && (clave.equals(personas.get(i).getClave())))
+				return true;
+		}
+		return false;
+	}
+	
+	public Usuario getUsuario(String username){
+		for(int i=0; i<personas.size(); i++){
+			if((username.equals(personas.get(i).getUsername())))
+				return personas.get(i);
+		}
+		return null;
+	}
+	
 	private boolean verificarAdd(ArrayList<Usuario> lista, Usuario nuevo) {
 		int i = 0;
 		boolean respuesta = true;
