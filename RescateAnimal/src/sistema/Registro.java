@@ -8,6 +8,12 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 
+import com.restfb.DefaultFacebookClient;
+import com.restfb.FacebookClient;
+import com.restfb.Parameter;
+import com.restfb.exception.FacebookOAuthException;
+import com.restfb.types.FacebookType;
+
 import apoyoanimal.Asociacion;
 import apoyoanimal.CasaCuna;
 import clientes.Mascota;
@@ -118,12 +124,28 @@ public class Registro {
 	}
 
 	public boolean publicarEnFacebook(Mascota mascota) {
-		//Proximamente...
-		return true; 
+		boolean estado = false;
+		try{
+			FacebookClient cliente = new DefaultFacebookClient(
+					"CAAVPzMos6fUBAFZALjQ3Mdh6YZBQJkWe4JzZBHJcXtQAMGEK4QWChlVRJaF9Jf8ZCh1lIZ"
+					+ "BtmWs9CPh2AEKQClAqK3QjH9AWE2Y9P657KnC2ygrscagVOJsIRgL17XWkcIZAsTKun1j"
+					+ "pnb9qRapJawn30DYb8n1ZBC3B9KheM7NbZBpGaoMHybGpzl5ZALhCidtTmjFpKGRWZCZCN"
+					+ "Vvcj6sX8ps&expires=5183623");
+			
+			cliente.publish("me/feed", FacebookType.class, Parameter.with("message", "He reportado "
+					+ "una mascota en el sistema Rescate Animal:\n"+mascota.toString()));
+			estado=true;
+		}catch(Exception ex){
+			if(ex instanceof FacebookOAuthException){
+				estado=false;
+			}
+		}
+		return estado;
 	}
 	
 	public boolean editarDatosUser(Usuario user) {
 		//Proximamente...
+		//TODO
 		return true;
 	}
 	
