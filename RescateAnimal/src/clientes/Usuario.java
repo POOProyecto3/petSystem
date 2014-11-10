@@ -13,6 +13,8 @@ public class Usuario extends Persona {
 	public Usuario(String dNombre, String dPApellido, String dSApellido, String dTelefono, 
 			String dCorreo, String dCedula, String dDireccion, String dUsername) {
 		super(dNombre, dPApellido, dSApellido, dTelefono, dCorreo, dCedula, dDireccion);
+		setUsername(dUsername);
+		setCalificacion(0);
 		reportes = new ArrayList<>();
 		adopciones = new ArrayList<>();
 	}
@@ -61,11 +63,11 @@ public class Usuario extends Persona {
 		return mascotaReportada;
 	}
 	
-	public void agregarReporte(Mascota nuevoReporte){
+	public void agregarReporte(Mascota nuevoReporte) {
 		reportes.add(nuevoReporte);
 	}
 	
-	public void agregarAdopcion(Mascota nuevaAdopcion){
+	public void agregarAdopcion(Mascota nuevaAdopcion) {
 		adopciones.add(nuevaAdopcion);
 	}
 
