@@ -23,7 +23,7 @@ public class Registro {
 	private ArrayList<String> listaTipos;
 	private ArrayList<String> listaColores;
 	
-	Registro() {
+	public Registro() {
 		personas = new ArrayList<>();
 		reportes = new ArrayList<>();
 		casasCuna = new ArrayList<>();
