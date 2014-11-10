@@ -156,7 +156,7 @@ public class Registro {
 	
 	//Se utiliza el indexCasaCuna para idenfiticar a cuál Casa Cuna se le agregará la mascota
 	public boolean alojarEnCasaCuna(int indexCasaCuna,Mascota mascota) {
-		if(0 <= indexCasaCuna && indexCasaCuna<casasCuna.size()) {
+		if (0 <= indexCasaCuna && indexCasaCuna<casasCuna.size()) {
 			ArrayList<Mascota> lista = casasCuna.get(indexCasaCuna).getMascotasEnCuido();
 			
 			int i = 0;
@@ -185,7 +185,7 @@ public class Registro {
 		
 		while (i < personas.size()) {			
 			if (personas.get(i) == user) {
-				if (personas.get(i).getCalificacion()==0) {
+				if (personas.get(i).getCalificacion() == 0) {
 					 personas.get(i).setCalificacion(calificacion);
 				}
 				
@@ -198,10 +198,12 @@ public class Registro {
 		return false;
 	}
 	
-	//Copia un archivo de una ubicacion a otra, el formato de la ruta debe ser "C:/ejemplo/de/ruta/nombreDeArchivo.extension"(Puede tener espacios)
+	/*Copia un archivo de una ubicacion a otra, el formato de la ruta debe ser "C:/ejemplo/de/ruta/nombreDeArchivo.extension"
+	(Puede tener espacios) */
+	
 	public boolean copiarArchivo(String direccion) {
 		File origen = new File(direccion);
-		File destino = new File(direccion.substring(direccion.lastIndexOf("/")+1));
+		File destino = new File(direccion.substring(direccion.lastIndexOf("/") + 1));
 
 		try {
 			InputStream in = new FileInputStream(origen);
