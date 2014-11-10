@@ -14,8 +14,6 @@ public class CasaCuna {
 	private String periodosCuido;
 	private int lapsoCuido;
 	private boolean ayudaComida;
-	private boolean machos;
-	private boolean hembras;
 	private boolean castrados;
 	private boolean vacunados;
 	

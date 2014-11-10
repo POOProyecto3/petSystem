@@ -5,6 +5,8 @@ public class Mascota {
 	private String especie;
 	private String raza;
 	private String chip;
+	private boolean vacunado;
+	private boolean castrado;
 	
 	private String color;
 	private String foto;
@@ -127,6 +129,22 @@ public class Mascota {
 				+ foto + "\nUbicacion: " + ubicacion + "\nFecha: " + fecha
 				+ "\nEstado: " + estado + "\nRecompensa: " + recompensa
 				+ "\nNotas: " + notas;
+	}
+
+	public boolean isVacunado() {
+		return vacunado;
+	}
+
+	public void setVacunado(boolean vacunado) {
+		this.vacunado = vacunado;
+	}
+
+	public boolean isCastrado() {
+		return castrado;
+	}
+
+	public void setCastrado(boolean castrado) {
+		this.castrado = castrado;
 	}
 		
 }

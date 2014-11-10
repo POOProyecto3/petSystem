@@ -149,6 +149,12 @@ public class Registro {
 		
 	}
 	
+	//Se utiliza el indexCasaCuna para idenfiticar a cuál Casa Cuna se le agregará la mascota
+	public boolean alojarEnCasaCuna(int indexCasaCuna,Mascota mascota){
+		//TODO
+		return true;
+	}
+	
 	
 /**************       Setters y Getters  ****************************************************/
 	public ArrayList<Usuario> getPersonas() {
