@@ -8,7 +8,7 @@ public class Moderador extends Usuario {
 			String dCorreo, String dCedula, String dDireccion, String dUsername,boolean isMaster) {
 		super (dNombre, dPApellido, dSApellido, dTelefono, dCorreo, dCedula, dDireccion,
 				dUsername);
-		setMaster(isMaster);
+		setMaster(true);
 	}
 
 	public boolean isMaster() {
@@ -32,7 +32,7 @@ public class Moderador extends Usuario {
 	}
 	
 	public String verInfo() {
-		return super.verInfo() + "\nAdmninistrador\nPuede modificar valores? " + isMaster();
+		return super.toString() + "\nAdmninistrador\nPuede modificar valores? " + isMaster();
 	}
 	
 

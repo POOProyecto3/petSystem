@@ -13,10 +13,10 @@ public class CasaCuna {
 	
 	private String periodosCuido;
 	private int lapsoCuido;
-	private boolean ayudaComida;
 	private boolean castrados;
 	private boolean vacunados;
 	
+	private boolean ayudaComida;
 	private boolean ayudaRopas;
 	private boolean ayudaEconomica;
 	private String notas;
@@ -41,22 +41,6 @@ public class CasaCuna {
 
 	public void setLugar(String lugar) {
 		this.lugar = lugar;
-	}
-
-	public boolean isMachos() {
-		return machos;
-	}
-
-	public void setMachos(boolean machos) {
-		this.machos = machos;
-	}
-
-	public boolean isHembras() {
-		return hembras;
-	}
-
-	public void setHembras(boolean hembras) {
-		this.hembras = hembras;
 	}
 
 	public boolean isCastrados() {
