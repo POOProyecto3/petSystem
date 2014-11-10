@@ -1,5 +1,11 @@
 package sistema;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 
 import apoyoanimal.Asociacion;
@@ -126,36 +132,113 @@ public class Registro {
 	}
 	
 	public boolean adoptar(int Usuario, Mascota mascota) {
-		if (Usuario < personas.size()) {
+		if (0 <= Usuario && Usuario < personas.size()) {
 			ArrayList<Mascota> adoptados = personas.get(Usuario).getAdopciones();
-			personas.get(Usuario).setAdopciones(adoptados);
 			
 			int i = 0;
 			while (i < reportes.size()) {
 				if (mascota == reportes.get(i)) {
 					reportes.get(i).setEstado("En Adopción");
 					mascota.setEstado("En Adopción");
+					adoptados.add(mascota);
+					personas.get(Usuario).setAdopciones(adoptados);
+					return true;
 				}
 				i++;
 			}
-			
-			adoptados.add(mascota);
-			personas.get(Usuario).setAdopciones(adoptados);
-			return true;
 		}
 		else {
 			return false;
 		}
+		return false;
 		
 	}
 	
 	//Se utiliza el indexCasaCuna para idenfiticar a cuál Casa Cuna se le agregará la mascota
 	public boolean alojarEnCasaCuna(int indexCasaCuna,Mascota mascota){
-		//TODO
-		return true;
+		if(0 <= indexCasaCuna && indexCasaCuna<casasCuna.size()){
+			ArrayList<Mascota> lista=casasCuna.get(indexCasaCuna).getMascotasEnCuido();
+			
+			int i = 0;
+			while (i < reportes.size()) {
+				if (mascota == reportes.get(i)) {
+					reportes.get(i).setEstado("En Casa Cuna");
+					mascota.setEstado("En Casa Cuna");
+					lista.add(mascota);
+					casasCuna.get(indexCasaCuna).setMascotasEnCuido(lista);
+					return true;
+				}
+				i++;
+			}			
+		}
+		return false;
 	}
 	
 	
+	public boolean reportarUsuario(Usuario user){
+		listaNegra.add(user);
+		return true;
+	}
+	
+	public boolean calificar(Usuario user, float calificacion){
+		int i = 0;
+		
+		while(i<personas.size()){
+			
+			if(personas.get(i)==user){
+				if(personas.get(i).getCalificacion()==0){
+					personas.get(i).setCalificacion(calificacion);
+				}
+				else{
+					personas.get(i).setCalificacion((personas.get(i).getCalificacion()+calificacion)/2);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	//Copia un archivo de una ubicacion a otra, el formato de la ruta debe ser "C:/ejemplo/de/ruta/nombreDeArchivo.extension"(Puede tener espacios)
+	public boolean copiarArchivo(String direccion) {
+		File origen = new File(direccion);
+		File destino = new File(direccion.substring(direccion.lastIndexOf("/")+1));
+
+		try {
+			InputStream in = new FileInputStream(origen);
+			OutputStream out = new FileOutputStream(destino);
+
+			byte[] buf = new byte[1024];
+			int len;
+
+			while ((len = in.read(buf)) > 0) {
+				out.write(buf, 0, len);
+			}
+
+			in.close();
+			out.close();
+			return true;
+		} catch (IOException ioe) {
+			ioe.printStackTrace();
+			return false;
+		}
+	}
+	
+	public boolean aceptarCoindicencia(Mascota pMascota,Mascota sMascota){
+		//TODO
+		return false;
+	}
+	
+	public boolean ponerEnAdopcion(Mascota mascota){
+		//TODO
+		return false;
+	}
+	
+	//Función anteriormente llamada AgregarListaBlanca
+	public boolean removerDeListaNegra(Usuario user){
+		//TODO
+		return false;
+	}
+		
 /**************       Setters y Getters  ****************************************************/
 	public ArrayList<Usuario> getPersonas() {
 		return personas;
